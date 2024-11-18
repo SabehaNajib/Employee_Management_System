@@ -11,3 +11,9 @@ Java Swing & AWT: For designing and developing the GUI.
 JDBC: To enable seamless communication between the application and the database.
 
 SQL: For efficient data storage, queries, and transaction management.
+
+Tools Used:
+
+Eclipse IDE
+MySQL Workbench
+
