@@ -28,24 +28,24 @@ public class ViewEmployee extends JFrame implements ActionListener{
 		
 		
 		search = new JButton("Search");
-        search.setBounds(20, 70, 80, 20);
-        search.addActionListener(this);
-        add(search);
+	        search.setBounds(20, 70, 80, 20);
+	        search.addActionListener(this);
+	        add(search);
 		
 		print = new JButton("Print");
-	    print.setBounds(120, 70, 80, 20);
-	    print.addActionListener(this);
-	    add(print);
-	        
-	    update = new JButton("Update");
-	    update.setBounds(220, 70, 80, 20);
-	    update.addActionListener(this);
-	    add(update);
-	        
-	    back = new JButton("Back");
-	    back.setBounds(320, 70, 80, 20);
-	    back.addActionListener(this);
-	    add(back);
+		print.setBounds(120, 70, 80, 20);
+		print.addActionListener(this);
+		add(print);
+		        
+		update = new JButton("Update");
+		update.setBounds(220, 70, 80, 20);
+		update.addActionListener(this);
+		add(update);
+		        
+		back = new JButton("Back");
+		back.setBounds(320, 70, 80, 20);
+		back.addActionListener(this);
+		add(back);
 		
 		table = new JTable();
 		
