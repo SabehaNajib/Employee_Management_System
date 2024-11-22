@@ -125,6 +125,7 @@ public class RemoveEmployee extends JFrame implements ActionListener{
 			try {
 				DatabaseConnection con = new DatabaseConnection();
 				String query = "DELETE FROM employees WHERE empId = '"+cEmpId.getSelectedItem()+"'";
+				con.stm.executeUpdate(query);
 				JOptionPane.showMessageDialog(null, "Employee Information Deleted Sccessfully");
 				setVisible(false);
 				new Home();
