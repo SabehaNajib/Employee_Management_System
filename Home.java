@@ -6,13 +6,13 @@ import java.awt.event.*;
 
 public class Home extends JFrame implements ActionListener{
 	
-	JButton add, view, update, remove;
+	JButton add, view, update, remove, salary;
 
 	Home() {
 		setLayout(null);
 		
 		ImageIcon i1 = new ImageIcon("Images/EMS_Home.jpg");
-		Image i2 = i1.getImage().getScaledInstance(1278, 680, Image.SCALE_DEFAULT);
+		Image i2 = i1.getImage().getScaledInstance(1278, 680, Image.SCALE_SMOOTH);
 		ImageIcon i3 = new ImageIcon(i2);
 		JLabel image = new JLabel(i3);
 		image.setBounds(0, 0, 1278, 680);
@@ -43,6 +43,11 @@ public class Home extends JFrame implements ActionListener{
 		remove.addActionListener(this);
 		image.add(remove);
 		
+		salary = new JButton("Generate Salary Slip");
+		salary.setBounds(680, 200, 250, 40);
+		salary.addActionListener(this);
+		image.add(salary);
+		
 		setSize(1278, 680);
 		setVisible(true);
 	}
@@ -59,6 +64,10 @@ public class Home extends JFrame implements ActionListener{
 		else if(ae.getSource() == update) {
 			setVisible(false);
 			new ViewEmployee();
+		}
+		else if(ae.getSource() == salary){
+			setVisible(false);
+			new SalarySlipGenerator();
 		}
 		else {
 			setVisible(false);
