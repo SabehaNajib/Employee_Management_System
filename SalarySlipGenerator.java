@@ -1,11 +1,9 @@
 package com.EMS.EmployeeManagementSystem;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.sql.ResultSet;
+import java.awt.event.*;
+import java.sql.*;
 
 public class SalarySlipGenerator extends JFrame implements ActionListener {
     JTextField tfEmpId, tfEmpName, tfBasicSalary, tfHRA, tfDA, tfDeductions;
@@ -28,27 +26,27 @@ public class SalarySlipGenerator extends JFrame implements ActionListener {
         add(lblTitle);
 
         JLabel labelempId = new JLabel("Employee id");
-		labelempId.setBounds(50, 50, 100, 30);
-		add(labelempId);
+	labelempId.setBounds(50, 50, 100, 30);
+	add(labelempId);
 		
-		cEmpId = new Choice();
-		cEmpId.setBounds(200, 50, 150, 30);
-		add(cEmpId);
+	cEmpId = new Choice();
+	cEmpId.setBounds(200, 50, 150, 30);
+	add(cEmpId);
 		
-		try {
-			DatabaseConnection con = new DatabaseConnection();
-			String query = "SELECT * FROM employees";
-			ResultSet rs = con.stm.executeQuery(query);
+	try {
+		DatabaseConnection con = new DatabaseConnection();
+		String query = "SELECT * FROM employees";
+		ResultSet rs = con.stm.executeQuery(query);
 			
-			while(rs.next()) {
-				cEmpId.add(rs.getString("empId"));
-			}
+		while(rs.next()) {
+			cEmpId.add(rs.getString("empId"));
 		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
+	}
+	catch(Exception e) {
+		e.printStackTrace();
+	}
 
-		JLabel labelname = new JLabel("Name");
+	JLabel labelname = new JLabel("Name");
         labelname.setBounds(50, 100, 100, 30);
         add(labelname);
         
@@ -75,7 +73,7 @@ public class SalarySlipGenerator extends JFrame implements ActionListener {
         			while(rs.next()) {
         				lblname.setText(rs.getString("name"));
         				double salary = rs.getDouble("salary");
-                        lblBasicSalary.setText(String.valueOf(salary));
+                        		lblBasicSalary.setText(String.valueOf(salary));
                         
         			}
         		}
