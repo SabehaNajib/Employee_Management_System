@@ -12,7 +12,7 @@ public class SalarySlipGenerator extends JFrame implements ActionListener {
     JTextArea taSalarySlip;
     JButton btnGenerate, btnClear, btnBack, btnPrint;
     Choice cEmpId;
-    JLabel lblname;
+    JLabel lblname, lblBasicSalary;
 
     SalarySlipGenerator() {
         setTitle("Salary Slip Generator");
@@ -56,6 +56,14 @@ public class SalarySlipGenerator extends JFrame implements ActionListener {
         lblname.setBounds(200, 100, 100, 30);
         add(lblname);
         
+        JLabel labelBasicSalary = new JLabel("Basic Salary:");
+        labelBasicSalary.setBounds(50, 160, 150, 30);
+        add(labelBasicSalary);
+
+        lblBasicSalary = new JLabel();
+        lblBasicSalary.setBounds(200, 160, 200, 30);
+        add(lblBasicSalary);
+        
         
         cEmpId.addItemListener(new ItemListener() {
         	public void itemStateChanged(ItemEvent ie) {
@@ -66,6 +74,8 @@ public class SalarySlipGenerator extends JFrame implements ActionListener {
         			
         			while(rs.next()) {
         				lblname.setText(rs.getString("name"));
+        				double salary = rs.getDouble("salary");
+                        lblBasicSalary.setText(String.valueOf(salary));
                         
         			}
         		}
@@ -75,14 +85,6 @@ public class SalarySlipGenerator extends JFrame implements ActionListener {
         	}
         });
         
-
-        JLabel lblBasicSalary = new JLabel("Basic Salary:");
-        lblBasicSalary.setBounds(50, 160, 150, 30);
-        add(lblBasicSalary);
-
-        tfBasicSalary = new JTextField();
-        tfBasicSalary.setBounds(200, 160, 200, 30);
-        add(tfBasicSalary);
 
         JLabel lblHRA = new JLabel("HRA:");
         lblHRA.setBounds(50, 210, 150, 30);
@@ -140,7 +142,7 @@ public class SalarySlipGenerator extends JFrame implements ActionListener {
             try {
                 String empId = cEmpId.getSelectedItem();
                 String empName = lblname.getText();
-                double basicSalary = Double.parseDouble(tfBasicSalary.getText());
+                double basicSalary = Double.parseDouble(lblBasicSalary.getText());
                 double hra = Double.parseDouble(tfHRA.getText());
                 double da = Double.parseDouble(tfDA.getText());
                 double deductions = Double.parseDouble(tfDeductions.getText());
@@ -162,7 +164,6 @@ public class SalarySlipGenerator extends JFrame implements ActionListener {
         }
         else if (e.getSource() == btnClear) {
             
-            tfBasicSalary.setText("");
             tfHRA.setText("");
             tfDA.setText("");
             tfDeductions.setText("");
